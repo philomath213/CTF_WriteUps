@@ -24,17 +24,17 @@ A Jordan matrix has each non-zero off-diagonal entry equal to $1$, immediately a
 
 for A a Jordan block as 2*2 matrix, if we have a repeated eigenvalues:
 
-![A](https://latex.codecogs.com/gif.download?A%20%3D%20%5Cbegin%7Bpmatrix%7D%20%5Clambda%20%26%201%20%5C%5C%200%20%26%20%5Clambda%20%5Cend%7Bpmatrix%7D)
+![alt text](img/A.gif, "Matrix A")
 
 for B = A^x:
 
-![B](https://latex.codecogs.com/gif.download?B%20%3D%20%5Cbegin%7Bpmatrix%7D%20%5Clambda%20%5Ex%20%26%20x%5Clambda%20%5E%7Bx-1%7D%20%5C%5C%200%20%26%20%5Clambda%20%5Ex%20%5Cend%7Bpmatrix%7D)
+![alt text](img/B.gif "Matrix B")
 
-therefore in this case: ![x](https://latex.codecogs.com/gif.download?B_%7B12%7D%20%3D%20xB_%7B11%7D/A_%7B11%7D%20%5CLeftrightarrow%20x%20%3D%20A_%7B11%7DB_%7B12%7D/B_%7B11%7D)
+therefore in this case: ![alt text](img/x.gif "Solution x")
 
 Now we need to apply this solution to ElGamat problem
 
-In our case G[3][3] to G[4][4] is a Jordan block with repeated eigenvalues, and all arithmetic operations are in Quotient Ring ![ring](https://latex.codecogs.com/gif.download?Z/Z_p).
+In our case G[3][3] to G[4][4] is a Jordan block with repeated eigenvalues, and all arithmetic operations are in Quotient Ring ![alt text](ing/ring.gif, "Ring Z/Zp").
 
 this is my code in sage ([ElGamat.sage](ElGamat.sage)):
 
