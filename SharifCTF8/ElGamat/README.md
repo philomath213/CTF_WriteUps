@@ -20,11 +20,11 @@ At the beginning I tried to diagonalize the matrix G and H in order to transform
 
 After doing some googling I figure out that in order to make this problem easy to solve we need to put both Matrices G and H in Jordan normal form (see [Jordan normal form](https://en.wikipedia.org/wiki/Jordan_normal_form))
 
-A Jordan matrix has each non-zero off-diagonal entry equal to $1$, immediately above the main diagonal.
+A Jordan matrix has each non-zero off-diagonal entry equal to 1, immediately above the main diagonal.
 
 for A a Jordan block as 2*2 matrix, if we have a repeated eigenvalues:
 
-![alt text](img/A.gif, "Matrix A")
+![alt text](img/A.gif "Matrix A")
 
 for B = A^x:
 
@@ -34,7 +34,7 @@ therefore in this case: ![alt text](img/x.gif "Solution x")
 
 Now we need to apply this solution to ElGamat problem
 
-In our case G[3][3] to G[4][4] is a Jordan block with repeated eigenvalues, and all arithmetic operations are in Quotient Ring ![alt text](ing/ring.gif, "Ring Z/Zp").
+In our case G[3][3] to G[4][4] is a Jordan block with repeated eigenvalues, and all arithmetic operations are in Quotient Ring ![alt text](ing/ring.gif "Ring Z/Zp").
 
 this is my code in sage ([ElGamat.sage](ElGamat.sage)):
 
