@@ -12,39 +12,29 @@
 > [Matrices.txt](Matrices.txt)
 ## Solution
 
-This problem appears to be similar to the discrete logarithm problem (see [Discrete logarithm](https://en.wikipedia.org/wiki/Discrete_logarithm)), but instead of the generator $g$ we a have a matrix $G$, So we need to find $x$ such that $G^x = H$ (both $G$ and $H$ are 5 square Matrices).
+This problem appears to be similar to the discrete logarithm problem (see [Discrete logarithm](https://en.wikipedia.org/wiki/Discrete_logarithm)), but instead of the generator g we a have a matrix G, So we need to find x such that G^x = H (both G and H are 5 square Matrices).
 
 Matrices => Linear Algebra: this challenge requires some fundamentals in linear algebra.
 
-At the beginning I tried to diagonalize the matrix $G$ and $H$ in order to transform the problem to a discrete logarithm problem, but it will stay hard to solve since $p-1$ is not a product of small primes which in this case Pohlig–Hellman algorithm is not an efficient method for computing the discrete logarithms.
+At the beginning I tried to diagonalize the matrix G and H in order to transform the problem to a discrete logarithm problem, but it will stay hard to solve since p-1 is not a product of small primes which in this case Pohlig–Hellman algorithm is not an efficient method for computing the discrete logarithms.
 
-After doing some googling I figure out that in order to make this problem easy to solve we need to put both Matrices $G$ and $H$ in Jordan normal form (see [Jordan normal form](https://en.wikipedia.org/wiki/Jordan_normal_form))
+After doing some googling I figure out that in order to make this problem easy to solve we need to put both Matrices G and H in Jordan normal form (see [Jordan normal form](https://en.wikipedia.org/wiki/Jordan_normal_form))
 
 A Jordan matrix has each non-zero off-diagonal entry equal to $1$, immediately above the main diagonal.
 
-for $A$ a Jordan block as $2\times2$ matrix, if we have a repeated eigenvalues:
+for A a Jordan block as 2*2 matrix, if we have a repeated eigenvalues:
 
-$$
-A = \left( \begin{array}{ccc}
-λ & 1 \\
-0 & λ \\
-\end{array} \right)
-$$
+![A](https://latex.codecogs.com/gif.download?A%20%3D%20%5Cbegin%7Bpmatrix%7D%20%5Clambda%20%26%201%20%5C%5C%200%20%26%20%5Clambda%20%5Cend%7Bpmatrix%7D)
 
-for $B = A^x$:
+for B = A^x:
 
-$$
-B = \left( \begin{array}{ccc}
-λ^x & xλ^{x-1} \\
-0 & λ^x \\
-\end{array} \right)
-$$
+![B](https://latex.codecogs.com/gif.download?B%20%3D%20%5Cbegin%7Bpmatrix%7D%20%5Clambda%20%5Ex%20%26%20x%5Clambda%20%5E%7Bx-1%7D%20%5C%5C%200%20%26%20%5Clambda%20%5Ex%20%5Cend%7Bpmatrix%7D)
 
-therefore in this case: $B_{12} = xB_{11}/A_{11}$ this implies $x = A_{11}B_{12}/B_{11}$.
+therefore in this case: ![x](https://latex.codecogs.com/gif.download?B_%7B12%7D%20%3D%20xB_%7B11%7D/A_%7B11%7D%20%5CLeftrightarrow%20x%20%3D%20A_%7B11%7DB_%7B12%7D/B_%7B11%7D)
 
 Now we need to apply this solution to ElGamat problem
 
-In our case $G_{44}$ to $G_{55}$ is a Jordan block with repeated eigenvalues, and all arithmetic operations are in Quotient Ring $Z/Z_p$.
+In our case G[3][3] to G[4][4] is a Jordan block with repeated eigenvalues, and all arithmetic operations are in Quotient Ring ![ring](https://latex.codecogs.com/gif.download?Z/Z_p).
 
 this is my code in sage ([ElGamat.sage](ElGamat.sage)):
 
@@ -99,7 +89,3 @@ def flag_gen(alpha):
 
 print '[+] FLAG:', flag_gen(x)
 ```
-
-<script type="text/javascript" async
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.2/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
