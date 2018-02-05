@@ -34,7 +34,7 @@ therefore in this case: ![alt text](img/x.gif "Solution x")
 
 Now we need to apply this solution to ElGamat problem
 
-In our case G[3][3] to G[4][4] is a Jordan block with repeated eigenvalues, and all arithmetic operations are in Quotient Ring ![alt text](ing/ring.gif "Ring Z/Zp").
+In our case G[3][3] to G[4][4] is a Jordan block with repeated eigenvalues, and all arithmetic operations are in Quotient Ring ![alt text](img/ring.gif "Ring Z/Zp").
 
 this is my code in sage ([ElGamat.sage](ElGamat.sage)):
 
